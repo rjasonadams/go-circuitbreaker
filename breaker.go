@@ -503,3 +503,10 @@ func (cb *CircuitBreaker) handleOnStateChange(from, to state) {
 	}
 	cb.onStateChange(from.State(), to.State())
 }
+
+// Stop will stop the Circuit Breaker and free resources (goroutine)
+func (cb *CircuitBreaker) Stop() {
+	cb.mu.Lock()
+	defer cb.mu.Unlock()
+	cb.state.onExit(cb)
+}

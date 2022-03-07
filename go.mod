@@ -1,4 +1,4 @@
-module github.com/mercari/go-circuitbreaker
+module github.com/rjasonadams/go-circuitbreaker
 
 go 1.15
 
